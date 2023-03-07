@@ -688,8 +688,7 @@ rules:
   - RULE-SET,Microsoft-rules,Microsoft
   - RULE-SET,Google-rules,Google
   - RULE-SET,Telegram-rules,Telegram
-  # ChatGPT规则绑定
-  # Todo 新增ChatGPT规则绑定
+  - RULE-SET,ChatGPT-rules,ChatGPT
   - RULE-SET,PayPal-rules,PayPal
   - RULE-SET,Twitter-rules,Twitter
   - RULE-SET,Facebook-rules,Facebook
