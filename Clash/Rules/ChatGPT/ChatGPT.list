@@ -1,0 +1,6 @@
+# name  : LazyConf
+# author: LiuBingXu1998
+# update: 2023.3.07
+
+payload:
+  - DOMAIN-KEYWORD,openai.com

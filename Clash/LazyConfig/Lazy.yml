@@ -1,0 +1,702 @@
+# name  : LBX-LazyConf
+# author: LiuBingXu1998
+# update: 2023.5.07
+# icon  : https://github.com/Koolson/Qure
+# other : '#' 为注释符号，删除 #号 该行才会生效
+
+# ---- 通用配置 -----
+mixed-port: 7890
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+external-controller: 127.0.0.1:9090
+secret: 10600f63-7277-4c93-b6f6-5135727f3746
+
+# ---- dns 配置 -----
+dns:
+  enable: true
+  ipv6: false
+  # dns服务器
+  default-nameserver:
+    # 腾讯云DNSPod DNS
+    - 119.29.29.29
+    - 119.28.28.28
+    # 阿里 AliDNS
+    - 223.5.5.5
+    # google Public DNS
+    - 8.8.8.8
+    - 8.8.4.4
+    # 114 DNS
+    - 114.114.114.114
+  nameserver:
+    # 腾讯云DNSPod DNS
+    - 119.29.29.29
+    - 119.28.28.28
+    # 阿里 AliDNS
+    - 223.5.5.5
+    # google Public DNS
+    - 8.8.8.8
+    - 8.8.4.4
+    # 114 DNS
+    - 114.114.114.114
+  #列表中的域名将不会被解析为fake ip，这些域名相关的解析请求将会返回它们真实的IP地址
+  fake-ip-filter:
+    - '*.localnetwork.uop'
+    - '*qq.com'
+    - 'qq.com'
+    - '*.lan'
+    - localhost.ptlogin2.qq.com
+    - '+.srv.nintendo.net'
+    - '+.stun.playstation.net'
+    - '+.msftconnecttest.com'
+    - '+.msftncsi.com'
+    - '+.xboxlive.com'
+    - 'msftconnecttest.com'
+    - 'xbox.*.microsoft.com'
+    - '*.battlenet.com.cn'
+    - '*.battlenet.com'
+    - '*.blzstatic.cn'
+    - '*.battle.net'
+
+# ---- 策略组 -----
+proxy-groups:
+  # 代理路线
+  - name: Proxy
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Quantumult_X.png
+    proxies:
+      [
+        '🇸🇬 新加坡-深度访问 DP',
+        '🇸🇬 新加坡-核心访问 DP',
+        '🇸🇬 新加坡-Kuiper-01',
+        '🇸🇬 新加坡-Kuiper-02',
+        '🇩🇪 德国-核心访问 DP',
+        '🇩🇪 德国-边缘访问 DP',
+        '🇺🇸 美国-深度访问 DP',
+        '🇺🇸 美国-核心访问 DP',
+        '🇺🇸 美国-边缘访问 DP',
+        '🇺🇸 美国-DP-01',
+        '🇺🇸 美国-DP-02',
+      ]
+
+  # 自动选择最优节点
+  - name: Auto
+    type: url-test
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Auto.png
+    proxies:
+      [
+        '🇸🇬 新加坡-深度访问 DP',
+        '🇸🇬 新加坡-核心访问 DP',
+        '🇸🇬 新加坡-Kuiper-01',
+        '🇸🇬 新加坡-Kuiper-02',
+      ]
+    url: 'http://www.google.com'
+    interval: 3600
+
+  # 服务器按地区分组策略
+  # 新加坡
+  - name: SG Server
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Singapore.png
+    proxies:
+      [
+        '🇸🇬 新加坡-深度访问 DP',
+        '🇸🇬 新加坡-核心访问 DP',
+        '🇸🇬 新加坡-Kuiper-01',
+        '🇸🇬 新加坡-Kuiper-02',
+      ]
+  # 德国
+  - name: DE Server
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Germany.png
+    proxies: ['🇩🇪 德国-核心访问 DP', '🇩🇪 德国-边缘访问 DP']
+  # 美国
+  - name: US Server
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/United_States.png
+    proxies:
+      [
+        '🇺🇸 美国-深度访问 DP',
+        '🇺🇸 美国-核心访问 DP',
+        '🇺🇸 美国-边缘访问 DP',
+        '🇺🇸 美国-DP-01',
+        '🇺🇸 美国-DP-02',
+      ]
+  # 亚洲
+  - name: Asia Server
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Area.png
+    proxies:
+      [
+        '🇸🇬 新加坡-深度访问 DP',
+        '🇸🇬 新加坡-核心访问 DP',
+        '🇸🇬 新加坡-Kuiper-01',
+        '🇸🇬 新加坡-Kuiper-02',
+      ]
+  # 欧洲
+  - name: Europe Server
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Area.png
+    proxies: ['🇩🇪 德国-核心访问 DP', '🇩🇪 德国-边缘访问 DP']
+  # 美洲
+  - name: America Server
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Area.png
+    proxies:
+      [
+        '🇺🇸 美国-深度访问 DP',
+        '🇺🇸 美国-核心访问 DP',
+        '🇺🇸 美国-边缘访问 DP',
+        '🇺🇸 美国-DP-01',
+        '🇺🇸 美国-DP-02',
+      ]
+
+  # 测试软件策略(按顺序走地区服务器)
+  # Speedtest策略
+  - name: Speedtest
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Speedtest.png
+    proxies:
+      - SG Server
+      - DE Server
+      - US Server
+      - Asia Server
+      - Europe Server
+      - America Server
+      - Final
+      - DIRECT
+  # TestFlight策略
+  - name: TestFlight
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/TestFlight.png
+    proxies:
+      - SG Server
+      - DE Server
+      - US Server
+      - Asia Server
+      - Europe Server
+      - America Server
+      - Final
+      - DIRECT
+
+  # 国外媒体细分策略(按顺序走地区服务器)
+  # Netflix策略
+  - name: Netflix Media
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Netflix.png
+    proxies:
+      - SG Server
+      - DE Server
+      - US Server
+      - Asia Server
+      - Europe Server
+      - America Server
+      - Final
+      - DIRECT
+  # Disney+策略
+  - name: Disney+ Media
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Disney%2B.png
+    proxies:
+      - SG Server
+      - DE Server
+      - US Server
+      - Asia Server
+      - Europe Server
+      - America Server
+      - Final
+      - DIRECT
+  # HBO策略
+  - name: HBO Media
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/HBO.png
+    proxies:
+      - SG Server
+      - DE Server
+      - US Server
+      - Asia Server
+      - Europe Server
+      - America Server
+      - Final
+      - DIRECT
+  # YouTube策略
+  - name: YouTube Media
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/YouTube.png
+    proxies:
+      - SG Server
+      - DE Server
+      - US Server
+      - Asia Server
+      - Europe Server
+      - America Server
+      - Final
+      - DIRECT
+
+  # 国外软件&服务细分策略(按顺序走地区服务器)
+  # Apple
+  - name: Apple
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Apple.png
+    proxies:
+      - SG Server
+      - DE Server
+      - US Server
+      - Asia Server
+      - Europe Server
+      - America Server
+      - Final
+      - DIRECT
+  # Microsoft
+  - name: Microsoft
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Microsoft.png
+    proxies:
+      - SG Server
+      - DE Server
+      - US Server
+      - Asia Server
+      - Europe Server
+      - America Server
+      - Final
+      - DIRECT
+  # Google
+  - name: Google
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Google.png
+    proxies:
+      - SG Server
+      - DE Server
+      - US Server
+      - Asia Server
+      - Europe Server
+      - America Server
+      - Final
+      - DIRECT
+  # Telegram
+  - name: Telegram
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Telegram.png
+    proxies:
+      - SG Server
+      - DE Server
+      - US Server
+      - Asia Server
+      - Europe Server
+      - America Server
+      - Final
+      - DIRECT
+  # ChatGPT
+  - name: ChatGPT
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Qure.png
+    proxies:
+      - SG Server
+      - DE Server
+      - US Server
+      - Asia Server
+      - Europe Server
+      - America Server
+      - Final
+      - DIRECT
+  # PayPal
+  - name: PayPal
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/PayPal.png
+    proxies:
+      - SG Server
+      - DE Server
+      - US Server
+      - Asia Server
+      - Europe Server
+      - America Server
+      - Final
+      - DIRECT
+  # Twitter
+  - name: Twitter
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Twitter.png
+    proxies:
+      - SG Server
+      - DE Server
+      - US Server
+      - Asia Server
+      - Europe Server
+      - America Server
+      - Final
+      - DIRECT
+  # Facebook
+  - name: Facebook
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Facebook.png
+    proxies:
+      - SG Server
+      - DE Server
+      - US Server
+      - Asia Server
+      - Europe Server
+      - America Server
+      - Final
+      - DIRECT
+  # Instagram
+  - name: Instagram
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Instagram.png
+    proxies:
+      - SG Server
+      - DE Server
+      - US Server
+      - Asia Server
+      - Europe Server
+      - America Server
+      - Final
+      - DIRECT
+
+  # 全局相关的策略(按顺序走地区服务器策略)
+  # GlobalMedia 全局媒体策略
+  - name: GlobalMedia
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/GlobalMedia.png
+    proxies:
+      - SG Server
+      - DE Server
+      - US Server
+      - Asia Server
+      - Europe Server
+      - America Server
+      - Final
+      - DIRECT
+  # Global 全局策略
+  - name: Global
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Global.png
+    proxies:
+      - SG Server
+      - DE Server
+      - US Server
+      - Asia Server
+      - Europe Server
+      - America Server
+      - Final
+      - DIRECT
+
+  # 去广告策略(去广告)
+  - name: Advertising
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Advertising.png
+    proxies:
+      - DIRECT
+      - REJECT
+
+  # 国内访问策略(国内访问)
+  - name: Mainland
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/China_Map.png
+    proxies:
+      - Final
+      - DIRECT
+
+  # 最终策略 如果前边的策略都没有被匹配到，则听从此策略组的规定
+  - name: Final
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Final.png
+    proxies:
+      - Auto
+      - Proxy
+      - DIRECT
+
+# ---- 本地服务器节点 -----
+# ---- 因为我的远程节点订阅没有生效，所以使用本地节点订阅的方式 -----
+proxies:
+  # BitzNet 节点
+  - {
+      name: '🇺🇸 美国-深度访问 DP',
+      type: trojan,
+      server: iplcus1.bnnodeservice.com,
+      port: 34001,
+      password: 63a26817-12c9-4935-90e3-73730c5c7986,
+      udp: true,
+      sni: cert.bitbyte.one,
+    }
+  - {
+      name: '🇺🇸 美国-核心访问 DP',
+      type: trojan,
+      server: traus1.bnnodeservice.com,
+      port: 32001,
+      password: 63a26817-12c9-4935-90e3-73730c5c7986,
+      udp: true,
+      sni: cert.bitbyte.one,
+    }
+  - {
+      name: '🇺🇸 美国-边缘访问 DP',
+      type: trojan,
+      server: dtus1.bnnodeservice.com,
+      port: 33001,
+      password: 63a26817-12c9-4935-90e3-73730c5c7986,
+      udp: true,
+      sni: cert.bitbyte.one,
+    }
+  - {
+      name: '🇸🇬 新加坡-深度访问 DP',
+      type: trojan,
+      server: iplcsg1.bnnodeservice.com,
+      port: 34006,
+      password: 63a26817-12c9-4935-90e3-73730c5c7986,
+      udp: true,
+      sni: cert.bitbyte.one,
+    }
+  - {
+      name: '🇸🇬 新加坡-核心访问 DP',
+      type: trojan,
+      server: trasg1.bnnodeservice.com,
+      port: 32007,
+      password: 63a26817-12c9-4935-90e3-73730c5c7986,
+      udp: true,
+      sni: cert.bitbyte.one,
+    }
+  - {
+      name: '🇩🇪 德国-核心访问 DP',
+      type: trojan,
+      server: trade1.bnnodeservice.com,
+      port: 32011,
+      password: 63a26817-12c9-4935-90e3-73730c5c7986,
+      udp: true,
+      sni: cert.bitbyte.one,
+    }
+  - {
+      name: '🇩🇪 德国-边缘访问 DP',
+      type: trojan,
+      server: dtde1.bnnodeservice.com,
+      port: 33011,
+      password: 63a26817-12c9-4935-90e3-73730c5c7986,
+      udp: true,
+      sni: cert.bitbyte.one,
+    }
+  # Bywave 节点
+  - {
+      name: '🇸🇬 新加坡-Kuiper-01',
+      type: ss,
+      server: out.jijifun.com,
+      port: 30042,
+      cipher: aes-256-gcm,
+      password: '114514',
+      plugin: obfs,
+      plugin-opts: { mode: http, host: c14cf1cc79.microsoft.com },
+      udp: true,
+    }
+  - {
+      name: '🇸🇬 新加坡-Kuiper-02',
+      type: ss,
+      server: out.jijifun.com,
+      port: 30043,
+      cipher: aes-256-gcm,
+      password: '114514',
+      plugin: obfs,
+      plugin-opts: { mode: http, host: c14cf1cc79.microsoft.com },
+      udp: true,
+    }
+  - {
+      name: '🇺🇸 美国-DP-01',
+      type: ss,
+      server: out.jijifun.com,
+      port: 30066,
+      cipher: aes-256-gcm,
+      password: '114514',
+      plugin: obfs,
+      plugin-opts: { mode: http, host: c14cf1cc79.microsoft.com },
+      udp: true,
+    }
+  - {
+      name: '🇺🇸 美国-DP-02',
+      type: ss,
+      server: out.jijifun.com,
+      port: 30067,
+      cipher: aes-256-gcm,
+      password: '114514',
+      plugin: obfs,
+      plugin-opts: { mode: http, host: c14cf1cc79.microsoft.com },
+      udp: true,
+    }
+
+# ---- 节点订阅链接 -----
+proxy-providers:
+
+# ---- 远程分流规则 -----
+rule-providers:
+  # 软件测试规则
+  # Speedtest规则:
+  Speedtest-rules:
+    type: http
+    behavior: classical
+    interval: 86400
+    name: Speedtest
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Speedtest/Speedtest.yaml
+  # TestFlight规则:
+  TestFlight-rules:
+    type: http
+    behavior: classical
+    interval: 86400
+    name: TestFlight
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/TestFlight/TestFlight.yaml
+
+  # 国外媒体细分规则
+  # Netflix规则
+  Netflix-Media-rules:
+    type: http
+    behavior: classical
+    interval: 86400
+    name: Netflix
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Netflix/Netflix.yaml
+  # Disney+规则
+  Disney-Media-rules:
+    type: http
+    behavior: classical
+    interval: 86400
+    name: Disney
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Disney/Disney.yaml
+  # HBO规则
+  HBO-Media-rules:
+    type: http
+    behavior: classical
+    interval: 86400
+    name: HBO
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/HBO/HBO.yaml
+  # YouTube规则
+  Youtube-Media-rules:
+    type: http
+    behavior: classical
+    interval: 86400
+    name: Youtube
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/YouTube/YouTube.yaml
+
+  # 国外软件&服务细分规则
+  # Apple规则
+  Apple-rules:
+    type: http
+    behavior: classical
+    interval: 86400
+    name: Apple
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Apple/Apple.yaml
+  # Microsoft规则
+  Microsoft-rules:
+    type: http
+    behavior: classical
+    interval: 86400
+    name: Microsoft
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Microsoft/Microsoft.yaml
+  # Google规则
+  Google-rules:
+    type: http
+    behavior: classical
+    interval: 86400
+    name: Google
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Google/Google.yaml
+  # Telegram规则
+  Telegram-rules:
+    type: http
+    behavior: classical
+    interval: 86400
+    name: Telegram
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Telegram/Telegram.yaml
+  # ChatGPT规则
+  # Todo 新增ChatGPT规则
+  # Paypal规则
+  PayPal-rules:
+    type: http
+    behavior: classical
+    interval: 86400
+    name: PayPal
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/PayPal/PayPal.yaml
+  # Twitter规则
+  Twitter-rules:
+    type: http
+    behavior: classical
+    interval: 86400
+    name: Twitter
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Twitter/Twitter.yaml
+  # Facebook规则
+  Facebook-rules:
+    type: http
+    behavior: classical
+    interval: 86400
+    name: Facebook
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Facebook/Facebook.yaml
+  # Instagram规则
+  Instagram-rules:
+    type: http
+    behavior: classical
+    interval: 86400
+    name: Instagram
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Instagram/Instagram.yaml
+
+  # 全局相关的规则
+  # GlobalMedia规则
+  GlobalMedia-rules:
+    type: http
+    behavior: classical
+    interval: 86400
+    name: GlobalMedia
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia.yaml
+  # Global规则
+  Global-rules:
+    type: http
+    behavior: classical
+    interval: 86400
+    name: Global
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global.yaml
+
+  # 去广告规则
+  Advertising-rules:
+    type: http
+    behavior: classical
+    interval: 86400
+    name: Advertising
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/Advertising.yaml
+
+  # 国内访问规则
+  Mainland-rules:
+    type: http
+    behavior: classical
+    interval: 86400
+    name: Mainland
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/China/China.yaml
+  MainlandIP-rules:
+    type: http
+    behavior: ipcidr
+    interval: 86400
+    name: MainlandIP
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/ChinaIPs/ChinaIPs_IP.yaml
+
+# ---- 远程分流规则和策略组绑定 -----
+rules:
+  # 软件测试规则绑定
+  - RULE-SET,Speedtest-rules,Speedtest
+  - RULE-SET,TestFlight-rules,TestFlight
+  # 国外媒体细分规则绑定
+  - RULE-SET,Netflix-Media-rules,Netflix Media
+  - RULE-SET,Disney-Media-rules,Disney+ Media
+  - RULE-SET,HBO-Media-rules,HBO Media
+  - RULE-SET,Youtube-Media-rules,YouTube Media
+  # 国外软件&服务细分规则绑定
+  - RULE-SET,Apple-rules,Apple
+  - RULE-SET,Microsoft-rules,Microsoft
+  - RULE-SET,Google-rules,Google
+  - RULE-SET,Telegram-rules,Telegram
+  # ChatGPT规则绑定
+  # Todo 新增ChatGPT规则绑定
+  - RULE-SET,PayPal-rules,PayPal
+  - RULE-SET,Twitter-rules,Twitter
+  - RULE-SET,Facebook-rules,Facebook
+  - RULE-SET,Instagram-rules,Instagram
+  # 全局相关的规则绑定
+  - RULE-SET,GlobalMedia-rules,GlobalMedia
+  - RULE-SET,Global-rules,Global
+  # 去广告规则绑定
+  - RULE-SET,Advertising-rules,Advertising
+  # 国内访问规则绑定
+  - RULE-SET,Mainland-rules,Mainland
+  - RULE-SET,MainlandIP-rules,Mainland
+  - GEOIP,CN,DIRECT
+  # 其他未匹配的网站
+  - MATCH,Final
