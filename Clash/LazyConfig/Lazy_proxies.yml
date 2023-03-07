@@ -60,37 +60,19 @@ dns:
     - '*.battle.net'
 
 # ---- 策略组 -----
+# ---- Proxy、Auto、SG Server、DE Server、US Server、Asia Server、Europe Server、America Server的proxies修改为自己的节点名称 -----
 proxy-groups:
   # 代理路线
   - name: Proxy
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Quantumult_X.png
-    proxies:
-      [
-        '🇸🇬 新加坡-深度访问 DP',
-        '🇸🇬 新加坡-核心访问 DP',
-        '🇸🇬 新加坡-Kuiper-01',
-        '🇸🇬 新加坡-Kuiper-02',
-        '🇩🇪 德国-核心访问 DP',
-        '🇩🇪 德国-边缘访问 DP',
-        '🇺🇸 美国-深度访问 DP',
-        '🇺🇸 美国-核心访问 DP',
-        '🇺🇸 美国-边缘访问 DP',
-        '🇺🇸 美国-DP-01',
-        '🇺🇸 美国-DP-02',
-      ]
+    proxies: ['name1', 'name2', 'name3']
 
   # 自动选择最优节点
   - name: Auto
     type: url-test
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Auto.png
-    proxies:
-      [
-        '🇸🇬 新加坡-深度访问 DP',
-        '🇸🇬 新加坡-核心访问 DP',
-        '🇸🇬 新加坡-Kuiper-01',
-        '🇸🇬 新加坡-Kuiper-02',
-      ]
+    proxies: ['name1', 'name2', 'name3']
     url: 'http://www.google.com'
     interval: 3600
 
@@ -99,58 +81,32 @@ proxy-groups:
   - name: SG Server
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Singapore.png
-    proxies:
-      [
-        '🇸🇬 新加坡-深度访问 DP',
-        '🇸🇬 新加坡-核心访问 DP',
-        '🇸🇬 新加坡-Kuiper-01',
-        '🇸🇬 新加坡-Kuiper-02',
-      ]
+    proxies: ['name1', 'name2', 'name3']
   # 德国
   - name: DE Server
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Germany.png
-    proxies: ['🇩🇪 德国-核心访问 DP', '🇩🇪 德国-边缘访问 DP']
+    proxies: ['name1', 'name2', 'name3']
   # 美国
   - name: US Server
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/United_States.png
-    proxies:
-      [
-        '🇺🇸 美国-深度访问 DP',
-        '🇺🇸 美国-核心访问 DP',
-        '🇺🇸 美国-边缘访问 DP',
-        '🇺🇸 美国-DP-01',
-        '🇺🇸 美国-DP-02',
-      ]
+    proxies: ['name1', 'name2', 'name3']
   # 亚洲
   - name: Asia Server
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Area.png
-    proxies:
-      [
-        '🇸🇬 新加坡-深度访问 DP',
-        '🇸🇬 新加坡-核心访问 DP',
-        '🇸🇬 新加坡-Kuiper-01',
-        '🇸🇬 新加坡-Kuiper-02',
-      ]
+    proxies: ['name1', 'name2', 'name3']
   # 欧洲
   - name: Europe Server
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Area.png
-    proxies: ['🇩🇪 德国-核心访问 DP', '🇩🇪 德国-边缘访问 DP']
+    proxies: ['name1', 'name2', 'name3']
   # 美洲
   - name: America Server
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Area.png
-    proxies:
-      [
-        '🇺🇸 美国-深度访问 DP',
-        '🇺🇸 美国-核心访问 DP',
-        '🇺🇸 美国-边缘访问 DP',
-        '🇺🇸 美国-DP-01',
-        '🇺🇸 美国-DP-02',
-      ]
+    proxies: ['name1', 'name2', 'name3']
 
   # 测试软件策略(按顺序走地区服务器)
   # Speedtest策略
@@ -407,117 +363,8 @@ proxy-groups:
       - DIRECT
 
 # ---- 本地服务器节点 -----
-# ---- 因为我的远程节点订阅没有生效，所以使用本地节点订阅的方式 -----
+# ---- 因为我的远程节点订阅没有生效，所以使用本地节点订阅的方式，需要手动引入节点 -----
 proxies:
-  # BitzNet 节点
-  - {
-      name: '🇺🇸 美国-深度访问 DP',
-      type: trojan,
-      server: iplcus1.bnnodeservice.com,
-      port: 34001,
-      password: 63a26817-12c9-4935-90e3-73730c5c7986,
-      udp: true,
-      sni: cert.bitbyte.one,
-    }
-  - {
-      name: '🇺🇸 美国-核心访问 DP',
-      type: trojan,
-      server: traus1.bnnodeservice.com,
-      port: 32001,
-      password: 63a26817-12c9-4935-90e3-73730c5c7986,
-      udp: true,
-      sni: cert.bitbyte.one,
-    }
-  - {
-      name: '🇺🇸 美国-边缘访问 DP',
-      type: trojan,
-      server: dtus1.bnnodeservice.com,
-      port: 33001,
-      password: 63a26817-12c9-4935-90e3-73730c5c7986,
-      udp: true,
-      sni: cert.bitbyte.one,
-    }
-  - {
-      name: '🇸🇬 新加坡-深度访问 DP',
-      type: trojan,
-      server: iplcsg1.bnnodeservice.com,
-      port: 34006,
-      password: 63a26817-12c9-4935-90e3-73730c5c7986,
-      udp: true,
-      sni: cert.bitbyte.one,
-    }
-  - {
-      name: '🇸🇬 新加坡-核心访问 DP',
-      type: trojan,
-      server: trasg1.bnnodeservice.com,
-      port: 32007,
-      password: 63a26817-12c9-4935-90e3-73730c5c7986,
-      udp: true,
-      sni: cert.bitbyte.one,
-    }
-  - {
-      name: '🇩🇪 德国-核心访问 DP',
-      type: trojan,
-      server: trade1.bnnodeservice.com,
-      port: 32011,
-      password: 63a26817-12c9-4935-90e3-73730c5c7986,
-      udp: true,
-      sni: cert.bitbyte.one,
-    }
-  - {
-      name: '🇩🇪 德国-边缘访问 DP',
-      type: trojan,
-      server: dtde1.bnnodeservice.com,
-      port: 33011,
-      password: 63a26817-12c9-4935-90e3-73730c5c7986,
-      udp: true,
-      sni: cert.bitbyte.one,
-    }
-  # Bywave 节点
-  - {
-      name: '🇸🇬 新加坡-Kuiper-01',
-      type: ss,
-      server: out.jijifun.com,
-      port: 30042,
-      cipher: aes-256-gcm,
-      password: '114514',
-      plugin: obfs,
-      plugin-opts: { mode: http, host: c14cf1cc79.microsoft.com },
-      udp: true,
-    }
-  - {
-      name: '🇸🇬 新加坡-Kuiper-02',
-      type: ss,
-      server: out.jijifun.com,
-      port: 30043,
-      cipher: aes-256-gcm,
-      password: '114514',
-      plugin: obfs,
-      plugin-opts: { mode: http, host: c14cf1cc79.microsoft.com },
-      udp: true,
-    }
-  - {
-      name: '🇺🇸 美国-DP-01',
-      type: ss,
-      server: out.jijifun.com,
-      port: 30066,
-      cipher: aes-256-gcm,
-      password: '114514',
-      plugin: obfs,
-      plugin-opts: { mode: http, host: c14cf1cc79.microsoft.com },
-      udp: true,
-    }
-  - {
-      name: '🇺🇸 美国-DP-02',
-      type: ss,
-      server: out.jijifun.com,
-      port: 30067,
-      cipher: aes-256-gcm,
-      password: '114514',
-      plugin: obfs,
-      plugin-opts: { mode: http, host: c14cf1cc79.microsoft.com },
-      udp: true,
-    }
 
 # ---- 节点订阅链接 -----
 proxy-providers:
