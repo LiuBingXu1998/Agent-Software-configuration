@@ -600,7 +600,12 @@ rule-providers:
     name: Telegram
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Telegram/Telegram.yaml
   # ChatGPT规则
-  # Todo 新增ChatGPT规则
+  ChatGPT-rules:
+    type: http
+    behavior: classical
+    interval: 86400
+    name: ChatGPT
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/PayPal/PayPal.yaml
   # Paypal规则
   PayPal-rules:
     type: http
