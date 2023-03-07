@@ -29,18 +29,13 @@ dns:
     - 8.8.4.4
     # 114 DNS
     - 114.114.114.114
+  #DoH服务器
   nameserver:
-    # 腾讯云DNSPod DNS
-    - 119.29.29.29
-    - 119.28.28.28
-    # 阿里 AliDNS
-    - 223.5.5.5
-    # google Public DNS
-    - 8.8.8.8
-    - 8.8.4.4
-    # 114 DNS
-    - 114.114.114.114
+    - https://dns.alidns.com/dns-query
+    - https://doh.dns.sb/dns-query
   #列表中的域名将不会被解析为fake ip，这些域名相关的解析请求将会返回它们真实的IP地址
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
     - '*.localnetwork.uop'
     - '*qq.com'
