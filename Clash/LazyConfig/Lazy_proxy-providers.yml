@@ -1,6 +1,6 @@
 # name  : LBX-LazyConf
 # author: LiuBingXu1998
-# update: 2023.5.07
+# update: 2023.4.04
 # icon  : https://github.com/Koolson/Qure
 # other : '#' 为注释符号，删除 #号 该行才会生效
 
@@ -55,285 +55,347 @@ dns:
     - '*.battle.net'
 
 # ---- 策略组 -----
-# ---- Proxy、Auto、SG Server、DE Server、US Server、Asia Server、Europe Server、America Server的proxies修改为自己的节点名称 -----
 proxy-groups:
   # 代理路线
-  - name: Proxy
+  - name: 🌀Proxy
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Quantumult_X.png
-    proxies: ['name1', 'name2', 'name3']
+    use:
+      - One
+      - Two
+      - Three
 
   # 自动选择最优节点
-  - name: Auto
+  # Todo use中使用 -- 自己需要的机场 -- 自己需要的地区的那个 节点组
+  - name: ⚡Auto
     type: url-test
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Auto.png
-    proxies: ['name1', 'name2', 'name3']
+    use:
+      - One-SG
     url: 'http://www.google.com'
-    interval: 3600
+    interval: 900
 
   # 服务器按地区分组策略
   # 新加坡
-  - name: SG Server
+  - name: 🌏SG Server
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Singapore.png
-    proxies: ['name1', 'name2', 'name3']
+    use: [
+        - One-SG
+        - Two-SG
+        - Three-SG,
+      ]
   # 德国
-  - name: DE Server
+  - name: 🌏DE Server
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Germany.png
-    proxies: ['name1', 'name2', 'name3']
+    use: [
+        - One-DE
+        - Two-DE
+        - Three-DE,
+      ]
   # 美国
-  - name: US Server
+  - name: 🌏US Server
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/United_States.png
-    proxies: ['name1', 'name2', 'name3']
+    use: [
+        - One-US
+        - Two-US
+        - Three-US,
+      ]
   # 亚洲
-  - name: Asia Server
+  - name: 🌏Asia Server
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Area.png
-    proxies: ['name1', 'name2', 'name3']
+    use: [
+        - One-Asia
+        - Two-Asia
+        - Three-Asia,
+      ]
   # 欧洲
-  - name: Europe Server
+  - name: 🌏Europe Server
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Area.png
-    proxies: ['name1', 'name2', 'name3']
+    use: [
+        - One-Europe
+        - Two-Europe
+        - Three-Europe,
+      ]
   # 美洲
-  - name: America Server
+  - name: 🌏America Server
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Area.png
-    proxies: ['name1', 'name2', 'name3']
+    use: [
+        - One-America
+        - Two-America
+        - Three-America,
+      ]
 
   # 测试软件策略(按顺序走地区服务器)
   # Speedtest策略
-  - name: Speedtest
+  - name: 🧭Speedtest
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Speedtest.png
     proxies:
-      - SG Server
-      - DE Server
-      - US Server
-      - Asia Server
-      - Europe Server
-      - America Server
-      - Final
+      - 🌀Proxy
+      - ⚡Auto
+      - 🌏SG Server
+      - 🌏DE Server
+      - 🌏US Server
+      - 🌏Asia Server
+      - 🌏Europe Server
+      - 🌏America Server
+      - ♻Final
       - DIRECT
   # TestFlight策略
-  - name: TestFlight
+  - name: 🧭TestFlight
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/TestFlight.png
     proxies:
-      - SG Server
-      - DE Server
-      - US Server
-      - Asia Server
-      - Europe Server
-      - America Server
-      - Final
+      - 🌀Proxy
+      - ⚡Auto
+      - 🌏SG Server
+      - 🌏DE Server
+      - 🌏US Server
+      - 🌏Asia Server
+      - 🌏Europe Server
+      - 🌏America Server
+      - ♻Final
       - DIRECT
 
   # 国外媒体细分策略(按顺序走地区服务器)
   # Netflix策略
-  - name: Netflix Media
+  - name: 🎞Netflix Media
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Netflix.png
     proxies:
-      - SG Server
-      - DE Server
-      - US Server
-      - Asia Server
-      - Europe Server
-      - America Server
-      - Final
+      - 🌀Proxy
+      - ⚡Auto
+      - 🌏SG Server
+      - 🌏DE Server
+      - 🌏US Server
+      - 🌏Asia Server
+      - 🌏Europe Server
+      - 🌏America Server
+      - ♻Final
       - DIRECT
   # Disney+策略
-  - name: Disney+ Media
+  - name: 🎞Disney+ Media
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Disney%2B.png
     proxies:
-      - SG Server
-      - DE Server
-      - US Server
-      - Asia Server
-      - Europe Server
-      - America Server
-      - Final
+      - 🌀Proxy
+      - ⚡Auto
+      - 🌏SG Server
+      - 🌏DE Server
+      - 🌏US Server
+      - 🌏Asia Server
+      - 🌏Europe Server
+      - 🌏America Server
+      - ♻Final
       - DIRECT
   # HBO策略
-  - name: HBO Media
+  - name: 🎞HBO Media
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/HBO.png
     proxies:
-      - SG Server
-      - DE Server
-      - US Server
-      - Asia Server
-      - Europe Server
-      - America Server
-      - Final
+      - 🌀Proxy
+      - ⚡Auto
+      - 🌏SG Server
+      - 🌏DE Server
+      - 🌏US Server
+      - 🌏Asia Server
+      - 🌏Europe Server
+      - 🌏America Server
+      - ♻Final
       - DIRECT
   # YouTube策略
-  - name: YouTube Media
+  - name: 🎞YouTube Media
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/YouTube.png
     proxies:
-      - SG Server
-      - DE Server
-      - US Server
-      - Asia Server
-      - Europe Server
-      - America Server
-      - Final
+      - 🌀Proxy
+      - ⚡Auto
+      - 🌏SG Server
+      - 🌏DE Server
+      - 🌏US Server
+      - 🌏Asia Server
+      - 🌏Europe Server
+      - 🌏America Server
+      - ♻Final
       - DIRECT
 
   # 国外软件&服务细分策略(按顺序走地区服务器)
   # Apple
-  - name: Apple
+  - name: 🍀Apple
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Apple.png
     proxies:
-      - SG Server
-      - DE Server
-      - US Server
-      - Asia Server
-      - Europe Server
-      - America Server
-      - Final
+      - 🌀Proxy
+      - ⚡Auto
+      - 🌏SG Server
+      - 🌏DE Server
+      - 🌏US Server
+      - 🌏Asia Server
+      - 🌏Europe Server
+      - 🌏America Server
+      - ♻Final
       - DIRECT
   # Microsoft
-  - name: Microsoft
+  - name: 🍀Microsoft
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Microsoft.png
     proxies:
-      - SG Server
-      - DE Server
-      - US Server
-      - Asia Server
-      - Europe Server
-      - America Server
-      - Final
+      - 🌀Proxy
+      - ⚡Auto
+      - 🌏SG Server
+      - 🌏DE Server
+      - 🌏US Server
+      - 🌏Asia Server
+      - 🌏Europe Server
+      - 🌏America Server
+      - ♻Final
       - DIRECT
   # Google
-  - name: Google
+  - name: 🍀Google
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Google.png
     proxies:
-      - SG Server
-      - DE Server
-      - US Server
-      - Asia Server
-      - Europe Server
-      - America Server
-      - Final
+      - 🌀Proxy
+      - ⚡Auto
+      - 🌏SG Server
+      - 🌏DE Server
+      - 🌏US Server
+      - 🌏Asia Server
+      - 🌏Europe Server
+      - 🌏America Server
+      - ♻Final
       - DIRECT
   # Telegram
-  - name: Telegram
+  - name: 🍀Telegram
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Telegram.png
     proxies:
-      - SG Server
-      - DE Server
-      - US Server
-      - Asia Server
-      - Europe Server
-      - America Server
-      - Final
+      - 🌀Proxy
+      - ⚡Auto
+      - 🌏SG Server
+      - 🌏DE Server
+      - 🌏US Server
+      - 🌏Asia Server
+      - 🌏Europe Server
+      - 🌏America Server
+      - ♻Final
       - DIRECT
   # ChatGPT
-  - name: ChatGPT
+  - name: 🍀ChatGPT
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Qure.png
     proxies:
-      - SG Server
-      - DE Server
-      - US Server
-      - Asia Server
-      - Europe Server
-      - America Server
-      - Final
+      - 🌀Proxy
+      - ⚡Auto
+      - 🌏SG Server
+      - 🌏DE Server
+      - 🌏US Server
+      - 🌏Asia Server
+      - 🌏Europe Server
+      - 🌏America Server
+      - ♻Final
       - DIRECT
   # PayPal
-  - name: PayPal
+  - name: 🍀PayPal
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/PayPal.png
     proxies:
-      - SG Server
-      - DE Server
-      - US Server
-      - Asia Server
-      - Europe Server
-      - America Server
-      - Final
+      - 🌀Proxy
+      - ⚡Auto
+      - 🌏SG Server
+      - 🌏DE Server
+      - 🌏US Server
+      - 🌏Asia Server
+      - 🌏Europe Server
+      - 🌏America Server
+      - ♻Final
       - DIRECT
   # Twitter
-  - name: Twitter
+  - name: 🍀Twitter
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Twitter.png
     proxies:
-      - SG Server
-      - DE Server
-      - US Server
-      - Asia Server
-      - Europe Server
-      - America Server
-      - Final
+      - 🌀Proxy
+      - ⚡Auto
+      - 🌏SG Server
+      - 🌏DE Server
+      - 🌏US Server
+      - 🌏Asia Server
+      - 🌏Europe Server
+      - 🌏America Server
+      - ♻Final
       - DIRECT
   # Facebook
-  - name: Facebook
+  - name: 🍀Facebook
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Facebook.png
     proxies:
-      - SG Server
-      - DE Server
-      - US Server
-      - Asia Server
-      - Europe Server
-      - America Server
-      - Final
+      - 🌀Proxy
+      - ⚡Auto
+      - 🌏SG Server
+      - 🌏DE Server
+      - 🌏US Server
+      - 🌏Asia Server
+      - 🌏Europe Server
+      - 🌏America Server
+      - ♻Final
       - DIRECT
   # Instagram
-  - name: Instagram
+  - name: 🍀Instagram
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Instagram.png
     proxies:
-      - SG Server
-      - DE Server
-      - US Server
-      - Asia Server
-      - Europe Server
-      - America Server
-      - Final
+      - 🌀Proxy
+      - ⚡Auto
+      - 🌏SG Server
+      - 🌏DE Server
+      - 🌏US Server
+      - 🌏Asia Server
+      - 🌏Europe Server
+      - 🌏America Server
+      - ♻Final
       - DIRECT
 
   # 全局相关的策略(按顺序走地区服务器策略)
   # GlobalMedia 全局媒体策略
-  - name: GlobalMedia
+  - name: 🎬GlobalMedia
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/GlobalMedia.png
     proxies:
-      - SG Server
-      - DE Server
-      - US Server
-      - Asia Server
-      - Europe Server
-      - America Server
-      - Final
+      - 🌀Proxy
+      - ⚡Auto
+      - 🌏SG Server
+      - 🌏DE Server
+      - 🌏US Server
+      - 🌏Asia Server
+      - 🌏Europe Server
+      - 🌏America Server
+      - ♻Final
       - DIRECT
   # Global 全局策略
-  - name: Global
+  - name: 🌐Global
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Global.png
     proxies:
-      - SG Server
-      - DE Server
-      - US Server
-      - Asia Server
-      - Europe Server
-      - America Server
-      - Final
+      - 🌀Proxy
+      - ⚡Auto
+      - 🌏SG Server
+      - 🌏DE Server
+      - 🌏US Server
+      - 🌏Asia Server
+      - 🌏Europe Server
+      - 🌏America Server
+      - ♻Final
       - DIRECT
 
   # 去广告策略(去广告)
-  - name: Advertising
+  - name: 🚫Advertising
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Advertising.png
     proxies:
@@ -341,28 +403,128 @@ proxy-groups:
       - REJECT
 
   # 国内访问策略(国内访问)
-  - name: Mainland
+  - name: 🗺Mainland
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/China_Map.png
     proxies:
-      - Final
+      - ♻Final
       - DIRECT
 
   # 最终策略 如果前边的策略都没有被匹配到，则听从此策略组的规定
-  - name: Final
+  - name: ♻Final
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Final.png
     proxies:
-      - Auto
-      - Proxy
+      - 🌀Proxy
+      - ⚡Auto
+      - 🌏SG Server
+      - 🌏DE Server
+      - 🌏US Server
+      - 🌏Asia Server
+      - 🌏Europe Server
+      - 🌏America Server
       - DIRECT
 
 # ---- 本地服务器节点 -----
-# ---- 因为我的远程节点订阅没有生效，所以使用本地节点订阅的方式，需要手动引入节点 -----
 proxies:
+
+# ---- init 是默认设置和 proxy-providers混合使用 -----
+init:
+  &init {
+    type: http,
+    interval: 172800,
+    health-check:
+      {
+        enable: true,
+        url: https://www.gstatic.com/generate_204,
+        interval: 1800,
+      },
+  }
 
 # ---- 节点订阅链接 -----
 proxy-providers:
+  # Todo 实际上你只需要将自己的机场订阅放入url之后即可，其他什么也不要动
+  # One 是我使用的机场名字，可以全局搜索并修改,也可以不动
+  One: &One-all # 这里表示引用上面的配置
+    <<: *init
+    # 这里是机场的订阅链接
+    url: ''
+    # 这里表示配置文件
+    path: ./proxy/One.yaml
+    # 过滤出指定的节点
+    filter: '狮城|新加坡|伦敦|英国|法国|德国|美国'
+  # One机场中所有的新加坡节点
+  One-SG:
+    <<: *One-all
+    filter: '狮城|新加坡'
+  # One机场中所有的德国节点
+  One-DE:
+    <<: *One-all
+    filter: '德国'
+  # One机场中所有的美国节点
+  One-US:
+    <<: *One-all
+    filter: '美国'
+  # One机场中所有的香港节点
+  One-Asia:
+    <<: *One-all
+    filter: '港|香港|🇭🇰|HK|HongKong|台|台湾|TW|新|新加坡|狮城|🇸🇬|SG|日|日本||JP'
+  # One机场中所有的欧洲节点
+  One-Europe:
+    <<: *One-all
+    filter: '英|英国||UK|法|法国|｜FR|德|德国||DE'
+  # One机场中所有的美洲节点
+  One-America:
+    <<: *One-all
+    filter: '美|美国||US|阿|阿根廷|🇦🇷|AR'
+  # ---- 如果有第二个机场 -----
+  Two: &Two-all
+    <<: *init
+    url: ''
+    path: ./proxy/Two.yaml
+    filter: '狮城|新加坡|伦敦|英国|法国|德国|美国'
+  Two-SG:
+    <<: *Two-all
+    filter: '狮城|新加坡'
+  Two-DE:
+    <<: *Two-all
+    filter: '德国'
+  Two-US:
+    <<: *Two-all
+    filter: '美国'
+  Two-Asia:
+    <<: *Two-all
+    filter: '港|香港|🇭🇰|HK|HongKong|台|台湾|TW|新|新加坡|狮城|🇸🇬|SG|日|日本||JP'
+  Two-Europe:
+    <<: *Two-all
+    filter: '英|英国||UK|法|法国|｜FR|德|德国||DE'
+  Two-America:
+    <<: *Two-all
+    filter: '美|美国||US|阿|阿根廷|🇦🇷|AR'
+  # ---- 如果有第三个机场 -----
+  Three: &Three-all
+    <<: *init
+    url: ''
+    path: ./proxy/Three.yaml
+    filter: '狮城|新加坡|伦敦|英国|法国|德国|美国'
+  Three-SG:
+    <<: *Three-all
+    filter: '狮城|新加坡'
+  Three-DE:
+    <<: *Three-all
+    filter: '德国'
+  Three-US:
+    <<: *Three-all
+    filter: '美国'
+  Three-Asia:
+    <<: *Three-all
+    filter: '港|香港|🇭🇰|HK|HongKong|台|台湾|TW|新|新加坡|狮城|🇸🇬|SG|日|日本||JP'
+  Three-Europe:
+    <<: *Three-all
+    filter: '英|英国||UK|法|法国|｜FR|德|德国||DE'
+  Three-America:
+    <<: *Three-all
+    filter: '美|美国||US|阿|阿根廷|🇦🇷|AR'
 
 # ---- 远程分流规则 -----
 rule-providers:
@@ -458,7 +620,7 @@ rule-providers:
     interval: 86400
     name: ChatGPT
     path: ./rules/ChatGPT.yaml
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/PayPal/PayPal.yaml
+    url: https://raw.githubusercontent.com/LiuBingXu1998/Agent-Software-configuration/main/Clash/Rules/ChatGPT/ChatGPT.yaml
   # Paypal规则
   PayPal-rules:
     type: http
@@ -538,31 +700,31 @@ rule-providers:
 # ---- 远程分流规则和策略组绑定 -----
 rules:
   # 软件测试规则绑定
-  - RULE-SET,Speedtest-rules,Speedtest
-  - RULE-SET,TestFlight-rules,TestFlight
+  - RULE-SET,Speedtest-rules,🧭Speedtest
+  - RULE-SET,TestFlight-rules,🧭TestFlight
   # 国外媒体细分规则绑定
-  - RULE-SET,Netflix-Media-rules,Netflix Media
-  - RULE-SET,Disney-Media-rules,Disney+ Media
-  - RULE-SET,HBO-Media-rules,HBO Media
-  - RULE-SET,Youtube-Media-rules,YouTube Media
+  - RULE-SET,Netflix-Media-rules,🎞Netflix Media
+  - RULE-SET,Disney-Media-rules,🎞Disney+ Media
+  - RULE-SET,HBO-Media-rules,🎞HBO Media
+  - RULE-SET,Youtube-Media-rules,🎞YouTube Media
   # 国外软件&服务细分规则绑定
-  - RULE-SET,Apple-rules,Apple
-  - RULE-SET,Microsoft-rules,Microsoft
-  - RULE-SET,Google-rules,Google
-  - RULE-SET,Telegram-rules,Telegram
-  - RULE-SET,ChatGPT-rules,ChatGPT
-  - RULE-SET,PayPal-rules,PayPal
-  - RULE-SET,Twitter-rules,Twitter
-  - RULE-SET,Facebook-rules,Facebook
-  - RULE-SET,Instagram-rules,Instagram
+  - RULE-SET,Apple-rules,🍀Apple
+  - RULE-SET,Microsoft-rules,🍀Microsoft
+  - RULE-SET,Google-rules,🍀Google
+  - RULE-SET,Telegram-rules,🍀Telegram
+  - RULE-SET,ChatGPT-rules,🍀ChatGPT
+  - RULE-SET,PayPal-rules,🍀PayPal
+  - RULE-SET,Twitter-rules,🍀Twitter
+  - RULE-SET,Facebook-rules,🍀Facebook
+  - RULE-SET,Instagram-rules,🍀Instagram
   # 全局相关的规则绑定
-  - RULE-SET,GlobalMedia-rules,GlobalMedia
-  - RULE-SET,Global-rules,Global
+  - RULE-SET,GlobalMedia-rules,🎬GlobalMedia
+  - RULE-SET,Global-rules,🌐Global
   # 去广告规则绑定
-  - RULE-SET,Advertising-rules,Advertising
+  - RULE-SET,Advertising-rules,🚫Advertising
   # 国内访问规则绑定
-  - RULE-SET,Mainland-rules,Mainland
-  - RULE-SET,MainlandIP-rules,Mainland
+  - RULE-SET,Mainland-rules,🗺Mainland
+  - RULE-SET,MainlandIP-rules,🗺Mainland
   - GEOIP,CN,DIRECT
   # 其他未匹配的网站
-  - MATCH,Final
+  - MATCH,♻Final
