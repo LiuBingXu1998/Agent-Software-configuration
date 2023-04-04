@@ -80,56 +80,55 @@ proxy-groups:
   - name: 🌏SG Server
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Singapore.png
-    use: [
-        - One-SG
-        - Two-SG
-        - Three-SG,
-      ]
+    use:
+      - One-SG
+      - Two-SG
+      - Three-SG,
+
   # 德国
   - name: 🌏DE Server
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Germany.png
-    use: [
-        - One-DE
-        - Two-DE
-        - Three-DE,
-      ]
+    use:
+      - One-DE
+      - Two-DE
+      - Three-DE,
+
   # 美国
   - name: 🌏US Server
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/United_States.png
-    use: [
-        - One-US
-        - Two-US
-        - Three-US,
-      ]
+    use:
+      - One-US
+      - Two-US
+      - Three-US,
+
   # 亚洲
   - name: 🌏Asia Server
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Area.png
-    use: [
-        - One-Asia
-        - Two-Asia
-        - Three-Asia,
-      ]
+    use:
+      - One-Asia
+      - Two-Asia
+      - Three-Asia,
+
   # 欧洲
   - name: 🌏Europe Server
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Area.png
-    use: [
-        - One-Europe
-        - Two-Europe
-        - Three-Europe,
-      ]
+    use:
+      - One-Europe
+      - Two-Europe
+      - Three-Europe,
+
   # 美洲
   - name: 🌏America Server
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Area.png
-    use: [
-        - One-America
-        - Two-America
-        - Three-America,
-      ]
+    use:
+      - One-America
+      - Two-America
+      - Three-America,
 
   # 测试软件策略(按顺序走地区服务器)
   # Speedtest策略
