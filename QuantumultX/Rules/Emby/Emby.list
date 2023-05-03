@@ -1,0 +1,59 @@
+# name  : LazyConf
+# author: LiuBingXu1998
+# update: 2023.5.03
+
+# ---- 私服 -----
+# peach_私服
+DOMAIN-SUFFIX,embymv.me,EmbyMedia
+DOMAIN-SUFFIX,ct.embymv.me,EmbyMedia
+DOMAIN-SUFFIX,cu.embymv.me,EmbyMedia
+DOMAIN-SUFFIX,cn.embymv.me,EmbyMedia
+
+# DiDiEmby_私服
+DOMAIN-SUFFIX,didi01.newwan.top,EmbyMedia
+DOMAIN-SUFFIX,la1.newwan.top,EmbyMedia
+
+# 23STUDIO_私服
+ip-cidr,188.172.228.49/8096,EmbyMedia
+
+# ---- 公益服-special -----
+# Polo_公益服
+DOMAIN-SUFFIX,sf.poloemby.xyz,EmbyMedia
+DOMAIN-SUFFIX,cfs.poloemby.xyz,EmbyMedia
+DOMAIN-SUFFIX,auto.dnslink.ml,EmbyMedia
+
+# peach_公益服
+DOMAIN-SUFFIX,kr.embymv.tk,EmbyMedia
+DOMAIN-SUFFIX,jp.embymv.tk,EmbyMedia
+DOMAIN-SUFFIX,embymv.tk,EmbyMedia
+
+# Orange_公益服
+DOMAIN-SUFFIX,cf.embytv.cf,EmbyMedia
+DOMAIN-SUFFIX,cdn.embytv.cf,EmbyMedia
+
+# ---- 特殊服 -----
+# Magic_公益服
+DOMAIN-SUFFIX,emby.freetz.top,EmbyMedia
+DOMAIN-SUFFIX,cf.freetz.top,EmbyMedia
+
+# Misty_公益服
+DOMAIN-SUFFIX,misty.ltd,EmbyMedia
+
+# 垃圾_公费服
+DOMAIN-SUFFIX,cfca.emby.ml,EmbyMedia
+DOMAIN-SUFFIX,1.loseremby.org,EmbyMedia
+DOMAIN-SUFFIX,4837.emby.ml,EmbyMedia
+
+# MisakaF_公费服
+DOMAIN-SUFFIX,emby.misakaf.org,EmbyMedia
+DOMAIN-SUFFIX,cdn.misakaf.org,EmbyMedia
+
+# ---- saved 公益服 -----
+# DVEmby_公益服
+DOMAIN-SUFFIX,emby.lzlz.cc,EmbyMedia
+
+# EmbyPlus_公益服
+DOMAIN-SUFFIX,embyplus.org,EmbyMedia
+
+# NMEmby_公益服
+DOMAIN-SUFFIX,film.goodisp.org,EmbyMedia
