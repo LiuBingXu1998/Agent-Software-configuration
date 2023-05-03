@@ -1,0 +1,26 @@
+Arguments: 
+  D:\Nodejs\node.exe D:\Nodejs\node_modules\yarn\bin\yarn.js add ./
+
+PATH: 
+  C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;D:\Git\cmd;D:\Nvm\nvm;D:\Nodejs;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;D:\Git LFS;C:\Users\lbxco\AppData\Local\Microsoft\WindowsApps;;C:\Users\lbxco\AppData\Local\Programs\oh-my-posh\bin;D:\Microsoft VS Code\bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.14.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EINVAL: invalid argument, mkdir 'C:\Users\lbxco\AppData\Local\Yarn\Cache\v6\npm-esktop-0.0.0-9e755f67-da15-4f63-ac4f-5adf269a3b47-1683095396359\node_modules\D:\Desktop'
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
