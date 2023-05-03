@@ -14,7 +14,7 @@ DOMAIN-SUFFIX,didi01.newwan.top,EmbyMedia
 DOMAIN-SUFFIX,la1.newwan.top,EmbyMedia
 
 # 23STUDIO_私服
-ip-cidr,188.172.228.49,EmbyMedia
+ip-cidr,188.172.228.49/24,EmbyMedia
 
 # ---- 公益服-special -----
 # Polo_公益服
