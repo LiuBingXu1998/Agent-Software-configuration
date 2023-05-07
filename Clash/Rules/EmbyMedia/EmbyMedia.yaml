@@ -1,48 +1,99 @@
 # name  : LazyConf
 # author: LiuBingXu1998
-# update: 2023.5.03
+# update: 2023.5.07
 
 payload:
   # ---- 私服 -----
   # peach_私服
-  - DOMAIN-SUFFIX,embymv.me
   - DOMAIN-SUFFIX,ct.embymv.me
   - DOMAIN-SUFFIX,cu.embymv.me
   - DOMAIN-SUFFIX,cn.embymv.me
+  - DOMAIN-SUFFIX,embymv.me
+
   # DiDiEmby_私服
   - DOMAIN-SUFFIX,didi01.newwan.top
   - DOMAIN-SUFFIX,la1.newwan.top
+  - DOMAIN-SUFFIX,newwan.top
+
   # 23STUDIO_私服
   - IP-CIDR,188.172.228.49/24
+  - DOMAIN-SUFFIX,23.emby77cf.cf
+  - DOMAIN-SUFFIX,emby77cf.cf
+
   # ---- 公益服-special -----
   # Polo_公益服
   - DOMAIN-SUFFIX,sf.poloemby.xyz
   - DOMAIN-SUFFIX,cfs.poloemby.xyz
   - DOMAIN-SUFFIX,auto.dnslink.ml
+  - DOMAIN-SUFFIX,poloemby.xyz
+
   # peach_公益服
   - DOMAIN-SUFFIX,kr.embymv.tk
   - DOMAIN-SUFFIX,jp.embymv.tk
   - DOMAIN-SUFFIX,embymv.tk
+
   # Orange_公益服
   - DOMAIN-SUFFIX,cf.embytv.cf
   - DOMAIN-SUFFIX,cdn.embytv.cf
+  - DOMAIN-SUFFIX,embytv.cf
+
   # ---- 特殊服 -----
   # Magic_公益服
   - DOMAIN-SUFFIX,emby.freetz.top
   - DOMAIN-SUFFIX,cf.freetz.top
+  - DOMAIN-SUFFIX,freetz.top
+
   # Misty_公益服
   - DOMAIN-SUFFIX,misty.ltd
+
   # 垃圾_公费服
   - DOMAIN-SUFFIX,cfca.emby.ml
-  - DOMAIN-SUFFIX,1.loseremby.org
   - DOMAIN-SUFFIX,4837.emby.ml
+  - DOMAIN-SUFFIX,emby.ml
+  - DOMAIN-SUFFIX,1.loseremby.org
+  - DOMAIN-SUFFIX,loseremby.org
+
   # MisakaF_公费服
   - DOMAIN-SUFFIX,emby.misakaf.org
   - DOMAIN-SUFFIX,cdn.misakaf.org
+  - DOMAIN-SUFFIX,misakaf.org
+
+  # MisakaF_VIP服
+  - DOMAIN-SUFFIX,cn.asa4.cn
+  - DOMAIN-SUFFIX,asa4.cn
+  - DOMAIN-SUFFIX,embyvip.misakaf.org
+  - DOMAIN-SUFFIX,misakaf.org
+
+  # StudyFun_VIP服
+  - DOMAIN-SUFFIX,cf.studyfun.live
+  - DOMAIN-SUFFIX,cdn.studyfun.live
+  - DOMAIN-SUFFIX,cdn1.studyfun.live
+  - DOMAIN-SUFFIX,studyfun.live
+
   # ---- saved 公益服 -----
   # DVEmby_公益服
   - DOMAIN-SUFFIX,emby.lzlz.cc
+  - DOMAIN-SUFFIX,lzlz.cc
+
+  # 星光Emby_公益服
+  - DOMAIN-SUFFIX,free.emby.eu.org
+  - DOMAIN-SUFFIX,9wfree.emby.eu.org
+  - DOMAIN-SUFFIX,emby.eu.org
+
   # EmbyPlus_公益服
   - DOMAIN-SUFFIX,embyplus.org
+
+  # 悻澪Emby_公益服
+  - DOMAIN-SUFFIX,cf.zi0.icu
+  - DOMAIN-SUFFIX,zby.zi0.icu
+  - DOMAIN-SUFFIX,zi0.icu
+
   # NMEmby_公益服
   - DOMAIN-SUFFIX,film.goodisp.org
+  - DOMAIN-SUFFIX,goodisp.org
+
+  # 星空Emby_公益服
+  - DOMAIN-SUFFIX,nl.774.gs
+  - DOMAIN-SUFFIX,774.gs
+  - DOMAIN-SUFFIX,hlxsa.emby77.org
+  - DOMAIN-SUFFIX,emby77.org
