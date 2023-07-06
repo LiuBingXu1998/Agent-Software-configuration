@@ -1,0 +1,8 @@
+# name  : LazyConf
+# author: LiuBingXu1998
+# update: 2023.7.06
+payload:
+  # Notion网站
+  - DOMAIN-SUFFIX, notion.so
+  # 亚马逊云，Notion图片上传
+  - DOMAIN-SUFFIX,amazonaws.com
