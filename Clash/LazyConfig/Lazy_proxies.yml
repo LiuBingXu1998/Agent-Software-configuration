@@ -458,7 +458,7 @@ rule-providers:
     interval: 86400
     name: ChatGPT
     path: ./rules/ChatGPT.yaml
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/PayPal/PayPal.yaml
+    url: https://raw.githubusercontent.com/LiuBingXu1998/Agent-Software-configuration/main/Clash/Rules/ChatGPT/ChatGPT.yaml
   # Paypal规则
   PayPal-rules:
     type: http
