@@ -1,6 +1,6 @@
 # name  : LazyConf
 # author: LiuBingXu1998
-# update: 2023.5.07
+# update: 2024.5.25
 
 # ---- 私服 -----
 # peach_私服
@@ -9,9 +9,9 @@ DOMAIN-SUFFIX,embymv.top,EmbyMedia
 # ---- 白名单 -----
 # Polo_公费服
 DOMAIN-SUFFIX,sf.poloemby.xyz,EmbyMedia
-DOMAIN-SUFFIX,cfs.poloemby.xyz,EmbyMedia
+DOMAIN-SUFFIX,scf.poloemby.xyz,EmbyMedia
 DOMAIN-SUFFIX,kr.poloemby.xyz,EmbyMedia
-DOMAIN-SUFFIX,auto.dnslink.ml,EmbyMedia
+DOMAIN-SUFFIX,auto.polodns.xyz,EmbyMedia
 DOMAIN-SUFFIX,poloemby.xyz,EmbyMedia
 
 # peach_公益服
@@ -19,28 +19,27 @@ DOMAIN-SUFFIX,kr.embymv.tk,EmbyMedia
 DOMAIN-SUFFIX,jp.embymv.tk,EmbyMedia
 DOMAIN-SUFFIX,embymv.tk,EmbyMedia
 
-# Orange_公费服
-DOMAIN-SUFFIX,cf.otv.icu,EmbyMedia
-DOMAIN-SUFFIX,otv.icu,EmbyMedia
-
 # ---- 公费服 -----
 # 垃圾_公费服
 DOMAIN-SUFFIX,line.xmsl.org,EmbyMedia
 DOMAIN-SUFFIX,pm.xmsl.org,EmbyMedia
 DOMAIN-SUFFIX,xmsl.org,EmbyMedia
 
-# MisakaF_公费服
+# ---- saved 公益服 -----
+# NMEmby_公益服
+DOMAIN-SUFFIX,film.hovervan.org,EmbyMedia
+DOMAIN-SUFFIX,hovervan.org,EmbyMedia
+
+# ---- 其他待更新服务器 -----
+# TODO 待更新
+# MisakaF_公费服 
 DOMAIN-SUFFIX,emby.misakaf.org,EmbyMedia
 DOMAIN-SUFFIX,cdn.misakaf.org,EmbyMedia
 DOMAIN-SUFFIX,misakaf.org,EmbyMedia
 
+# TODO 待更新
 # MisakaF_VIP服
 DOMAIN-SUFFIX,cn.asa4.cn,EmbyMedia
 DOMAIN-SUFFIX,asa4.cn,EmbyMedia
 DOMAIN-SUFFIX,embyvip.misakaf.org,EmbyMedia
 DOMAIN-SUFFIX,misakaf.org,EmbyMedia
-
-# ---- saved 公益服 -----
-# NMEmby_公益服
-DOMAIN-SUFFIX,film.ohhhh.org,EmbyMedia
-DOMAIN-SUFFIX,ohhhh.org,EmbyMedia
