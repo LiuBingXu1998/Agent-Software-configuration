@@ -24,22 +24,3 @@ DOMAIN-SUFFIX,embymv.tk,EmbyMedia
 DOMAIN-SUFFIX,line.xmsl.org,EmbyMedia
 DOMAIN-SUFFIX,pm.xmsl.org,EmbyMedia
 DOMAIN-SUFFIX,xmsl.org,EmbyMedia
-
-# ---- saved 公益服 -----
-# NMEmby_公益服
-DOMAIN-SUFFIX,film.hovervan.org,EmbyMedia
-DOMAIN-SUFFIX,hovervan.org,EmbyMedia
-
-# ---- 其他待更新服务器 -----
-# TODO 待更新
-# MisakaF_公费服 
-DOMAIN-SUFFIX,emby.misakaf.org,EmbyMedia
-DOMAIN-SUFFIX,cdn.misakaf.org,EmbyMedia
-DOMAIN-SUFFIX,misakaf.org,EmbyMedia
-
-# TODO 待更新
-# MisakaF_VIP服
-DOMAIN-SUFFIX,cn.asa4.cn,EmbyMedia
-DOMAIN-SUFFIX,asa4.cn,EmbyMedia
-DOMAIN-SUFFIX,embyvip.misakaf.org,EmbyMedia
-DOMAIN-SUFFIX,misakaf.org,EmbyMedia

@@ -5,5 +5,7 @@
 payload:
   # Notion网站
   - DOMAIN-SUFFIX,notion.so
+  # Notion关键字
+  - DOMAIN-KEYWORD,notion
   # 亚马逊云，Notion图片上传
   - DOMAIN-SUFFIX,amazonaws.com

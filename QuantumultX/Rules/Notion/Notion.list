@@ -1,0 +1,10 @@
+# name  : LazyConf
+# author: LiuBingXu1998
+# update: 2025.2.20
+
+# Notion网站
+DOMAIN-SUFFIX,notion.so,Notion
+# Notion关键字
+HOST-KEYWORD,notion,Notion
+# 亚马逊云，Notion图片上传
+DOMAIN-SUFFIX,amazonaws.com,Notion
