@@ -1,5 +1,10 @@
 # name  : LazyConf
 # author: LiuBingXu
-# update: 2025.4.16
+# update: 2025.4.24
 
-# 暂无
+# 机场网站-YuSheNet
+DOMAIN-SUFFIX,yushe.org,LBX_Global
+# 机场网站-XsusNet
+DOMAIN-SUFFIX,xsus.wiki,LBX_Global
+# 机场网站-XfssNet
+DOMAIN-SUFFIX,xfltd.org,LBX_Global

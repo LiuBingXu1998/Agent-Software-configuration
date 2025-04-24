@@ -1,0 +1,7 @@
+# name  : LazyConf
+# author: LiuBingXu
+# update: 2025.4.24
+
+payload:
+  # 掘金
+  - DOMAIN-SUFFIX,juejin.cn
