@@ -5,7 +5,5 @@
 payload:
   # 机场网站-YuSheNet
   - DOMAIN-SUFFIX,yushe.org
-  # 机场网站-XsusNet
-  - DOMAIN-SUFFIX,xsus.wiki
   # 机场网站-XfssNet
   - DOMAIN-SUFFIX,xfltd.org
