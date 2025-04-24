@@ -1,5 +1,5 @@
 # name  : LBX-LazyConf
-# author: LiuBingXu1998
+# author: LiuBingXu
 # update: 2023.4.04
 # icon  : https://github.com/Koolson/Qure
 # other : '#' 为注释符号，删除 #号 该行才会生效
@@ -619,7 +619,7 @@ rule-providers:
     interval: 86400
     name: ChatGPT
     path: ./rules/ChatGPT.yaml
-    url: https://raw.githubusercontent.com/LiuBingXu1998/Agent-Software-configuration/main/Clash/Rules/ChatGPT/ChatGPT.yaml
+    url: https://raw.githubusercontent.com/LiuBingXu/Agent-Software-configuration/main/Clash/Rules/ChatGPT/ChatGPT.yaml
   # Paypal规则
   PayPal-rules:
     type: http
