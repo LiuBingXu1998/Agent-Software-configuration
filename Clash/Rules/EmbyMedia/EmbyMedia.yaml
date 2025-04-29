@@ -7,14 +7,10 @@ payload:
   # peach_私服
   - DOMAIN-SUFFIX,embymv.top
 
-  # ---- 白名单 -----
+  # ---- 公费服 -----
   # Polo_公费服
   - DOMAIN-SUFFIX,poloemby.xyz
 
-  # peach_公益服
-  - DOMAIN-SUFFIX,embymv.link
-
-  # ---- 公费服 -----
   # 垃圾_公费服
   - DOMAIN-SUFFIX,line.xmsl.org
   - DOMAIN-SUFFIX,pm.xmsl.org

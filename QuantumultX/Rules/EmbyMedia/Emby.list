@@ -6,14 +6,10 @@
 # peach_私服
 DOMAIN-SUFFIX,embymv.top,EmbyMedia
 
-# ---- 白名单 -----
+# ---- 公费服 -----
 # Polo_公费服
 DOMAIN-SUFFIX,poloemby.xyz,EmbyMedia
 
-# peach_公益服
-DOMAIN-SUFFIX,embymv.link,EmbyMedia
-
-# ---- 公费服 -----
 # 垃圾_公费服
 DOMAIN-SUFFIX,line.xmsl.org,EmbyMedia
 DOMAIN-SUFFIX,pm.xmsl.org,EmbyMedia
