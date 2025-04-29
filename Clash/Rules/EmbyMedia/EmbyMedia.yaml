@@ -1,6 +1,6 @@
 # name  : LazyConf
 # author: LiuBingXu
-# update: 2023.5.25
+# update: 2025.4.29
 
 payload:
   # ---- 私服 -----
@@ -9,16 +9,10 @@ payload:
 
   # ---- 白名单 -----
   # Polo_公费服
-  - DOMAIN-SUFFIX,sf.poloemby.xyz
-  - DOMAIN-SUFFIX,scf.poloemby.xyz
-  - DOMAIN-SUFFIX,kr.poloemby.xyz
-  - DOMAIN-SUFFIX,auto.polodns.xyz
   - DOMAIN-SUFFIX,poloemby.xyz
 
   # peach_公益服
-  - DOMAIN-SUFFIX,kr.embymv.tk
-  - DOMAIN-SUFFIX,jp.embymv.tk
-  - DOMAIN-SUFFIX,embymv.tk
+  - DOMAIN-SUFFIX,embymv.link
 
   # ---- 公费服 -----
   # 垃圾_公费服
