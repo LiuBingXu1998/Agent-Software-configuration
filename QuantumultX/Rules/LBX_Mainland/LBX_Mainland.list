@@ -4,3 +4,6 @@
 
 # 掘金
 DOMAIN-SUFFIX,juejin.cn,LBX_Mainland
+
+# 京东-微信小程序
+DOMAIN-SUFFIX,api.xf-sub.vip,LBX_Mainland
