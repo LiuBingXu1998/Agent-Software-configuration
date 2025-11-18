@@ -1,0 +1,834 @@
+# name  : LBX-LazyConf
+# author: LiuBingXu1998
+# update: 2025.11.17
+# icon  : https://github.com/Koolson/Qure
+# other : '#' 为注释符号，删除 #号 该行才会生效
+
+# ---- 通用配置 -----
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7894
+allow-lan: true
+bind-address: '*'
+ipv6: true
+unified-delay: true
+tcp-concurrent: true
+log-level: info
+find-process-mode: 'off'
+global-client-fingerprint: chrome
+keep-alive-idle: 600
+keep-alive-interval: 15
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+# ---- 控制面板 -----
+external-controller: 0.0.0.0:9090
+secret: ''
+external-ui: '/etc/mihomo/ui'
+external-ui-name: zashboard
+external-ui-url: 'https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip'
+
+# ---- 嗅探 -----
+sniffer:
+  enable: true
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: false
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+  skip-domain:
+    - 'Mijia Cloud'
+    - '+.push.apple.com'
+    - '+.sunlogin.net'
+
+# ---- 入站 -----
+tun:
+  enable: true
+  # system/gvisor/mixed
+  stack: mixed
+  dns-hijack: ['any:53', 'tcp://any:53']
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
+
+# ---- DNS配置 -----
+dns:
+  enable: true
+  listen: 0.0.0.0:1053
+  ipv6: false
+  respect-rules: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 28.0.0.1/8
+  fake-ip-filter-mode: blacklist
+  fake-ip-filter:
+    - '*'
+    - '+.lan'
+    - '+.local'
+    - '+.msftconnecttest.com'
+    - '+.msftncsi.com'
+    - 'time.*.com'
+    - '+.market.xiaomi.com'
+    # - 'rule-set:🗺LBX_Mainland,🗺Mainland'
+  default-nameserver:
+    - 223.5.5.5
+  proxy-server-nameserver:
+    - 119.29.29.29
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+
+# ---- 策略组 -----
+proxy-groups:
+  # 代理路线
+  - {
+      name: 🌀Proxy,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Quantumult_X.png,
+      include-all: true,
+    }
+
+  # 自动选择最优节点
+  - {
+      name: ⚡Auto,
+      type: url-test,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Auto.png,
+      include-all: true,
+      tolerance: 20,
+      interval: 300,
+      filter: '^((?!(Direct)).)*$',
+    }
+
+  # 服务器按地区分组策略
+  # 新加坡
+  - {
+      name: 🇸🇬SG Server,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Singapore.png,
+      include-all: true,
+      filter: '(?i)新加坡|坡|狮城|SG|Singapore',
+    }
+  # 德国
+  - {
+      name: 🇩🇪DE Server,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Germany.png,
+      include-all: true,
+      filter: '(?i)德国|德|DE|Germany',
+    }
+  # 美国
+  - {
+      name: 🇺🇲US Server,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/United_States.png,
+      include-all: true,
+      filter: '(?i)美国|美|us|unitedstates|united states',
+    }
+  # 亚洲
+  - {
+      name: 🌏Asia Server,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Area.png,
+      include-all: true,
+      filter: '(?i)新加坡|坡|狮城|SG|Singapore',
+    }
+  # 欧洲
+  - {
+      name: 🌏Europe Server,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Area.png,
+      include-all: true,
+      filter: '(?i)德国|德|DE|Germany',
+    }
+  # 美洲
+  - {
+      name: 🌏America Server,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Area.png,
+      include-all: true,
+      filter: '(?i)美国|美|us|unitedstates|united states',
+    }
+
+  # 测试软件策略(按顺序走地区服务器)
+  # Speedtest策略
+  - {
+      name: 🧭Speedtest,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Speedtest.png,
+      proxies:
+        [
+          🌀Proxy,
+          ⚡Auto,
+          🇸🇬SG Server,
+          🇩🇪DE Server,
+          🇺🇲US Server,
+          🌏Asia Server,
+          🌏Europe Server,
+          🌏America Server,
+          ♻Final,
+          Direct,
+        ],
+    }
+  # TestFlight策略
+  - {
+      name: 🧭TestFlight,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/TestFlight.png,
+      proxies:
+        [
+          🌀Proxy,
+          ⚡Auto,
+          🇸🇬SG Server,
+          🇩🇪DE Server,
+          🇺🇲US Server,
+          🌏Asia Server,
+          🌏Europe Server,
+          🌏America Server,
+          ♻Final,
+          Direct,
+        ],
+    }
+
+  # 国外媒体细分策略(按顺序走地区服务器)
+  # Netflix策略
+  - {
+      name: 🎞Netflix Media,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Netflix.png,
+      proxies:
+        [
+          🌀Proxy,
+          ⚡Auto,
+          🇸🇬SG Server,
+          🇩🇪DE Server,
+          🇺🇲US Server,
+          🌏Asia Server,
+          🌏Europe Server,
+          🌏America Server,
+          ♻Final,
+          Direct,
+        ],
+    }
+  # Disney+策略
+  - {
+      name: 🎞Disney+ Media,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Disney%2B.png,
+      proxies:
+        [
+          🌀Proxy,
+          ⚡Auto,
+          🇸🇬SG Server,
+          🇩🇪DE Server,
+          🇺🇲US Server,
+          🌏Asia Server,
+          🌏Europe Server,
+          🌏America Server,
+          ♻Final,
+          Direct,
+        ],
+    }
+  # HBO策略
+  - {
+      name: 🎞HBO Media,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/HBO.png,
+      proxies:
+        [
+          🌀Proxy,
+          ⚡Auto,
+          🇸🇬SG Server,
+          🇩🇪DE Server,
+          🇺🇲US Server,
+          🌏Asia Server,
+          🌏Europe Server,
+          🌏America Server,
+          ♻Final,
+          Direct,
+        ],
+    }
+  # YouTube策略
+  - {
+      name: 🎞YouTube Media,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/YouTube.png,
+      proxies:
+        [
+          🌀Proxy,
+          ⚡Auto,
+          🇸🇬SG Server,
+          🇩🇪DE Server,
+          🇺🇲US Server,
+          🌏Asia Server,
+          🌏Europe Server,
+          🌏America Server,
+          ♻Final,
+          Direct,
+        ],
+    }
+  # Emby策略
+  - {
+      name: 🎞Emby Media,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Emby.png,
+      proxies:
+        [
+          🌀Proxy,
+          ⚡Auto,
+          🇸🇬SG Server,
+          🇩🇪DE Server,
+          🇺🇲US Server,
+          🌏Asia Server,
+          🌏Europe Server,
+          🌏America Server,
+          ♻Final,
+          Direct,
+        ],
+    }
+
+  # 国外软件&服务细分策略(按顺序走地区服务器)
+  # Apple
+  - {
+      name: 🍀Apple,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Apple.png,
+      proxies:
+        [
+          🌀Proxy,
+          ⚡Auto,
+          🇸🇬SG Server,
+          🇩🇪DE Server,
+          🇺🇲US Server,
+          🌏Asia Server,
+          🌏Europe Server,
+          🌏America Server,
+          ♻Final,
+          Direct,
+        ],
+    }
+  # Microsoft
+  - {
+      name: 🍀Microsoft,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Microsoft.png,
+      proxies:
+        [
+          🌀Proxy,
+          ⚡Auto,
+          🇸🇬SG Server,
+          🇩🇪DE Server,
+          🇺🇲US Server,
+          🌏Asia Server,
+          🌏Europe Server,
+          🌏America Server,
+          ♻Final,
+          Direct,
+        ],
+    }
+  # Google
+  - {
+      name: 🍀Google,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Google.png,
+      proxies:
+        [
+          🌀Proxy,
+          ⚡Auto,
+          🇸🇬SG Server,
+          🇩🇪DE Server,
+          🇺🇲US Server,
+          🌏Asia Server,
+          🌏Europe Server,
+          🌏America Server,
+          ♻Final,
+          Direct,
+        ],
+    }
+  # Telegram
+  - {
+      name: 🍀Telegram,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Telegram.png,
+      proxies:
+        [
+          🌀Proxy,
+          ⚡Auto,
+          🇸🇬SG Server,
+          🇩🇪DE Server,
+          🇺🇲US Server,
+          🌏Asia Server,
+          🌏Europe Server,
+          🌏America Server,
+          ♻Final,
+          Direct,
+        ],
+    }
+  # ChatGPT
+  - {
+      name: 🍀ChatGPT,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Qure.png,
+      proxies:
+        [
+          🌀Proxy,
+          ⚡Auto,
+          🇸🇬SG Server,
+          🇩🇪DE Server,
+          🇺🇲US Server,
+          🌏Asia Server,
+          🌏Europe Server,
+          🌏America Server,
+          ♻Final,
+          Direct,
+        ],
+    }
+  # PayPal
+  - {
+      name: 🍀PayPal,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/PayPal.png,
+      proxies:
+        [
+          🌀Proxy,
+          ⚡Auto,
+          🇸🇬SG Server,
+          🇩🇪DE Server,
+          🇺🇲US Server,
+          🌏Asia Server,
+          🌏Europe Server,
+          🌏America Server,
+          ♻Final,
+          Direct,
+        ],
+    }
+  # Twitter
+  - {
+      name: 🍀Twitter,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Twitter.png,
+      proxies:
+        [
+          🌀Proxy,
+          ⚡Auto,
+          🇸🇬SG Server,
+          🇩🇪DE Server,
+          🇺🇲US Server,
+          🌏Asia Server,
+          🌏Europe Server,
+          🌏America Server,
+          ♻Final,
+          Direct,
+        ],
+    }
+  # Facebook
+  - {
+      name: 🍀Facebook,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Facebook.png,
+      proxies:
+        [
+          🌀Proxy,
+          ⚡Auto,
+          🇸🇬SG Server,
+          🇩🇪DE Server,
+          🇺🇲US Server,
+          🌏Asia Server,
+          🌏Europe Server,
+          🌏America Server,
+          ♻Final,
+          Direct,
+        ],
+    }
+  # Instagram
+  - {
+      name: 🍀Instagram,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Instagram.png,
+      proxies:
+        [
+          🌀Proxy,
+          ⚡Auto,
+          🇸🇬SG Server,
+          🇩🇪DE Server,
+          🇺🇲US Server,
+          🌏Asia Server,
+          🌏Europe Server,
+          🌏America Server,
+          ♻Final,
+          Direct,
+        ],
+    }
+  # Notion
+  - {
+      name: 🍀Notion,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Notion.png,
+      proxies:
+        [
+          🌀Proxy,
+          ⚡Auto,
+          🇸🇬SG Server,
+          🇩🇪DE Server,
+          🇺🇲US Server,
+          🌏Asia Server,
+          🌏Europe Server,
+          🌏America Server,
+          ♻Final,
+          Direct,
+        ],
+    }
+
+  # 全局相关的策略(按顺序走地区服务器策略)
+  # LBX自定义全局策略
+  - {
+      name: 🌐LBX_Global,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Global.png,
+      proxies:
+        [
+          🌀Proxy,
+          ⚡Auto,
+          🇸🇬SG Server,
+          🇩🇪DE Server,
+          🇺🇲US Server,
+          🌏Asia Server,
+          🌏Europe Server,
+          🌏America Server,
+          ♻Final,
+          Direct,
+        ],
+    }
+  # LBX自定义国内策略
+  - {
+      name: 🗺LBX_Mainland,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/China_Map.png,
+      proxies:
+        [
+          🌀Proxy,
+          ⚡Auto,
+          🇸🇬SG Server,
+          🇩🇪DE Server,
+          🇺🇲US Server,
+          🌏Asia Server,
+          🌏Europe Server,
+          🌏America Server,
+          ♻Final,
+          Direct,
+        ],
+    }
+  # GlobalMedia 全局媒体策略
+  - {
+      name: 🎬GlobalMedia,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/GlobalMedia.png,
+      proxies:
+        [
+          🌀Proxy,
+          ⚡Auto,
+          🇸🇬SG Server,
+          🇩🇪DE Server,
+          🇺🇲US Server,
+          🌏Asia Server,
+          🌏Europe Server,
+          🌏America Server,
+          ♻Final,
+          Direct,
+        ],
+    }
+  # Global 全局策略
+  - {
+      name: 🌐Global,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Global.png,
+      proxies:
+        [
+          🌀Proxy,
+          ⚡Auto,
+          🇸🇬SG Server,
+          🇩🇪DE Server,
+          🇺🇲US Server,
+          🌏Asia Server,
+          🌏Europe Server,
+          🌏America Server,
+          ♻Final,
+          Direct,
+        ],
+    }
+
+  # 去广告策略(去广告)
+  - {
+      name: 🚫Advertising,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Advertising.png,
+      proxies: [Direct, Reject],
+    }
+
+  # 国内访问策略(国内访问)
+  - {
+      name: 🗺Mainland,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/China_Map.png,
+      proxies: [♻Final, Direct],
+    }
+
+  # 最终策略 如果前边的策略都没有被匹配到，则听从此策略组的规定
+  - {
+      name: ♻Final,
+      type: select,
+      icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Final.png,
+      proxies:
+        [
+          🌀Proxy,
+          ⚡Auto,
+          🇸🇬SG Server,
+          🇩🇪DE Server,
+          🇺🇲US Server,
+          🌏Asia Server,
+          🌏Europe Server,
+          🌏America Server,
+          Direct,
+        ],
+    }
+
+# ---- 本地服务器节点 -----
+proxies:
+  - { name: Direct, type: direct }
+  - { name: Reject, type: reject }
+
+# ---- 节点订阅链接 -----
+proxy-providers:
+  Airport1:
+    url: '机场订阅填到这里，两端引号不要去掉，不要填写到下方链接里去！！'
+    type: http
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+    proxy: Direct
+    header:
+      User-Agent:
+        - 'Clash'
+    filter: '新加坡|坡|狮城|SG|Singapore|德国|德|DE|Germany|美国|美|us|unitedstates|united states'
+    override:
+      additional-prefix: '[Airport1]'
+  Airport2:
+    url: '机场订阅填到这里，两端引号不要去掉，不要填写到下方链接里去！！'
+    type: http
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+    proxy: Direct
+    header:
+      User-Agent:
+        - 'Clash'
+    filter: '新加坡|坡|狮城|SG|Singapore|德国|德|DE|Germany|美国|美|us|unitedstates|united states'
+    override:
+      additional-prefix: '[Airport2]'
+
+# ---- 远程分流规则 -----
+## type：可选http/file/inline  behavior：可选domain/ipcidr/classical format：可选yaml/text/mrs
+rule-anchor:
+  ip: &ip { type: http, interval: 86400, behavior: ipcidr, format: yaml }
+  domain: &domain { type: http, interval: 86400, behavior: domain, format: mrs }
+  class:
+    &class { type: http, interval: 86400, behavior: classical, format: yaml }
+
+rule-providers:
+  # 软件测试规则
+  # Speedtest规则:
+  Speedtest-rules:
+    {
+      <<: *class,
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Speedtest/Speedtest.yaml',
+    }
+  # TestFlight规则:
+  TestFlight-rules:
+    {
+      <<: *class,
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/TestFlight/TestFlight.yaml',
+    }
+
+  # 国外媒体细分规则
+  # Netflix规则
+  Netflix-Media-rules:
+    {
+      <<: *class,
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Netflix/Netflix.yaml',
+    }
+  # Disney+规则
+  Disney-Media-rules:
+    {
+      <<: *class,
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Disney/Disney.yaml',
+    }
+  # HBO规则
+  HBO-Media-rules:
+    {
+      <<: *class,
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/HBO/HBO.yaml',
+    }
+  # YouTube规则
+  Youtube-Media-rules:
+    {
+      <<: *class,
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/YouTube/YouTube.yaml',
+    }
+  # Emby规则
+  Emby-Media-rules:
+    {
+      <<: *class,
+      url: 'https://raw.githubusercontent.com/LiuBingXu1998/Agent-Software-configuration/main/Clash/Rules/EmbyMedia/EmbyMedia.yaml',
+    }
+
+  # 国外软件&服务细分规则
+  # Apple规则
+  Apple-rules:
+    {
+      <<: *class,
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Apple/Apple.yaml',
+    }
+  # Microsoft规则
+  Microsoft-rules:
+    {
+      <<: *class,
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Microsoft/Microsoft.yaml',
+    }
+  # Google规则
+  Google-rules:
+    {
+      <<: *class,
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Google/Google.yaml',
+    }
+  # Telegram规则
+  Telegram-rules:
+    {
+      <<: *class,
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Telegram/Telegram.yaml',
+    }
+  # ChatGPT规则
+  ChatGPT-rules:
+    {
+      <<: *class,
+      url: 'https://raw.githubusercontent.com/LiuBingXu1998/Agent-Software-configuration/main/Clash/Rules/ChatGPT/ChatGPT.yaml',
+    }
+  # Paypal规则
+  PayPal-rules:
+    {
+      <<: *class,
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/PayPal/PayPal.yaml',
+    }
+  # Twitter规则
+  Twitter-rules:
+    {
+      <<: *class,
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/Twitter/Twitter.yaml',
+    }
+  # Facebook规则
+  Facebook-rules:
+    {
+      <<: *class,
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Facebook/Facebook.yaml',
+    }
+  # Instagram规则
+  Instagram-rules:
+    {
+      <<: *class,
+      url: 'ttps://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Instagram/Instagram.yaml',
+    }
+  # Notion规则
+  Notion-rules:
+    {
+      <<: *class,
+      url: 'https://raw.githubusercontent.com/LiuBingXu1998/Agent-Software-configuration/main/Clash/Rules/Notion/Notion.yaml',
+    }
+
+  # 全局相关的规则
+  # LBX自定义全局规则
+  LBX_Global-rules:
+    {
+      <<: *class,
+      url: 'https://raw.githubusercontent.com/LiuBingXu1998/Agent-Software-configuration/main/Clash/Rules/LBX_Global/LBX_Global.yaml',
+    }
+  # LBX自定义国内规则
+  LBX_Mainland-rules:
+    {
+      <<: *class,
+      url: 'https://raw.githubusercontent.com/LiuBingXu1998/Agent-Software-configuration/main/Clash/Rules/LBX_Mainland/LBX_Mainland.yaml',
+    }
+  # GlobalMedia规则
+  GlobalMedia-rules:
+    {
+      <<: *class,
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia.yaml',
+    }
+  # Global规则
+  Global-rules:
+    {
+      <<: *class,
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global.yaml',
+    }
+
+  # 去广告规则
+  Advertising-rules:
+    {
+      <<: *class,
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/Advertising.yaml',
+    }
+
+  # 国内访问规则
+  Mainland-rules:
+    {
+      <<: *class,
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/China/China.yaml',
+    }
+  MainlandIP-rules:
+    {
+      <<: *ip,
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/Clash/ChinaIPs/ChinaIPs_IP.yaml',
+    }
+
+# ---- 远程分流规则和策略组绑定 -----
+rules:
+  # Notion软件
+  - RULE-SET,Notion-rules,🍀Notion
+  # 软件测试规则绑定
+  - RULE-SET,Speedtest-rules,🧭Speedtest
+  - RULE-SET,TestFlight-rules,🧭TestFlight
+  # 国外媒体细分规则绑定
+  - RULE-SET,Netflix-Media-rules,🎞Netflix Media
+  - RULE-SET,Disney-Media-rules,🎞Disney+ Media
+  - RULE-SET,HBO-Media-rules,🎞HBO Media
+  - RULE-SET,Youtube-Media-rules,🎞YouTube Media
+  - RULE-SET,Emby-Media-rules,🎞Emby Media
+  # 国外软件&服务细分规则绑定
+  - RULE-SET,Apple-rules,🍀Apple
+  - RULE-SET,Microsoft-rules,🍀Microsoft
+  - RULE-SET,Google-rules,🍀Google
+  - RULE-SET,Telegram-rules,🍀Telegram
+  - RULE-SET,ChatGPT-rules,🍀ChatGPT
+  - RULE-SET,PayPal-rules,🍀PayPal
+  - RULE-SET,Twitter-rules,🍀Twitter
+  - RULE-SET,Facebook-rules,🍀Facebook
+  - RULE-SET,Instagram-rules,🍀Instagram
+  # 全局相关的规则绑定
+  - RULE-SET,LBX_Global-rules,🌐LBX_Global
+  - RULE-SET,LBX_Mainland-rules,🗺LBX_Mainland
+  - RULE-SET,GlobalMedia-rules,🎬GlobalMedia
+  - RULE-SET,Global-rules,🌐Global
+  # 去广告规则绑定
+  - RULE-SET,Advertising-rules,🚫Advertising
+  # 国内访问规则绑定
+  - RULE-SET,Mainland-rules,🗺Mainland
+  - RULE-SET,MainlandIP-rules,🗺Mainland
+  - GEOIP,CN,Direct
+  # 其他未匹配的网站
+  - MATCH,♻Final
