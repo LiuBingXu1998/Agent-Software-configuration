@@ -2,5 +2,10 @@
 # author: LiuBingXu
 # update: 2025.4.16
 
+# ---- 机场网站 -----
+# YuSheNet
+DOMAIN-SUFFIX,yushe.org,LBX_Mainland
+
+# ---- 其他网站 -----
 # 掘金
 DOMAIN-SUFFIX,juejin.cn,LBX_Mainland
