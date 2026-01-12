@@ -4,6 +4,8 @@
 
 # ---- 机场网站 -----
 # XfssNet
-DOMAIN-SUFFIX,xfltd.org,LBX_Global
-DOMAIN-SUFFIX,xfltd.me,LBX_Global
 HOST-KEYWORD,xfltd,LBX_Global
+
+# ---- BT网站 -----
+# anyBT
+HOST-KEYWORD,anybt,LBX_Global
