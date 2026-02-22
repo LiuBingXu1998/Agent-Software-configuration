@@ -6,6 +6,10 @@
 # YuSheNet
 DOMAIN-SUFFIX,yushe.org,LBX_Mainland
 
+# ---- 资源网站 -----
+# M-team
+DOMAIN-SUFFIX,m-team.io,LBX_Mainland
+
 # ---- 其他网站 -----
 # 掘金
 DOMAIN-SUFFIX,juejin.cn,LBX_Mainland
