@@ -1,0 +1,6 @@
+# name  : LazyConf
+# author: LiuBingXu
+# update: 2026.2.23
+
+payload:
+  - DOMAIN-SUFFIX,imap.gmail.com
