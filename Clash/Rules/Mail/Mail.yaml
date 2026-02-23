@@ -4,4 +4,4 @@
 
 payload:
   - DOMAIN-SUFFIX,imap.gmail.com
-  - DOMAIN-SUFFIX,stmp.gmail.com
+  - DOMAIN-SUFFIX,smtp.gmail.com
