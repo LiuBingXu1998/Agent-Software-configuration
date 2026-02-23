@@ -4,3 +4,4 @@
 
 # Gmail
 DOMAIN-SUFFIX,imap.gmail.com,Mail
+DOMAIN-SUFFIX,stmp.gmail.com,Mail
