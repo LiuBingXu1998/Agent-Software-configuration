@@ -99,24 +99,36 @@ dns:
   fake-ip-range: 28.0.0.1/8
   fake-ip-filter-mode: blacklist
   fake-ip-filter:
-    - '*'
-    - '+.lan'
-    - '+.local'
+    - '*.localnetwork.uop'
+    - '*qq.com'
+    - 'qq.com'
+    - '*.lan'
+    - localhost.ptlogin2.qq.com
+    - '+.srv.nintendo.net'
+    - '+.stun.playstation.net'
     - '+.msftconnecttest.com'
     - '+.msftncsi.com'
-    - 'time.*.com'
-    - '+.market.xiaomi.com'
+    - '+.xboxlive.com'
+    - 'msftconnecttest.com'
+    - 'xbox.*.microsoft.com'
+    - '*.battlenet.com.cn'
+    - '*.battlenet.com'
+    - '*.blzstatic.cn'
+    - '*.battle.net'
   default-nameserver:
-    - 223.5.5.5
+    # 腾讯云DNSPod DNS
     - 119.29.29.29
+    - 119.28.28.28
+    # 阿里 AliDNS
+    - 223.5.5.5
+    # google Public DNS
+    - 8.8.8.8
+    - 8.8.4.4
+    # 114 DNS
     - 114.114.114.114
-    - '[2402:4e00::]'
-    - '[2400:3200::1]'
   nameserver:
-    - 'tls://8.8.4.4#dns'
-    - 'tls://1.0.0.1#dns'
-    - 'tls://[2001:4860:4860::8844]#dns'
-    - 'tls://[2606:4700:4700::1001]#dns'
+    - https://dns.alidns.com/dns-query
+    - https://doh.dns.sb/dns-query
   proxy-server-nameserver:
     - https://doh.pub/dns-query
   nameserver-policy:
