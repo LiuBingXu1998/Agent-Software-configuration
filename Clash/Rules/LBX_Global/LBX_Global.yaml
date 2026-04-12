@@ -10,3 +10,12 @@ payload:
   # ---- BT网站 -----
   # anyBT
   - DOMAIN-KEYWORD,anybt
+
+  # ---- 经济网站 ----
+  # ICMarkets
+  - DOMAIN-SUFFIX,icmarkets.com
+  - DOMAIN-SUFFIX,secure.icmarkets.com
+  - DOMAIN-SUFFIX,icm-client-area.com
+  - DOMAIN-SUFFIX,secure.icm-client-area.com
+  - DOMAIN-SUFFIX,icm-cn-asia.com
+  - DOMAIN-SUFFIX,webtrader.cm-cn-asia.com
