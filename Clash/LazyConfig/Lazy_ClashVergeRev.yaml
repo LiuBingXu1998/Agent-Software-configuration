@@ -667,8 +667,8 @@ proxy-providers:
     proxy: DIRECT
     header:
       User-Agent:
-        - 'Clash/v1.18.0'
-        - 'mihomo/1.19.19'
+        - 'Mihomo'
+        - 'ClashMeta'
     filter: '新加坡|坡|狮城|SG|Singapore|德国|德|DE|Germany|美国|美|us|unitedstates|united states|剩余流量'
     exclude-filter: '应急`不能用`Tiktok'
     override:
@@ -697,8 +697,8 @@ proxy-providers:
     proxy: DIRECT
     header:
       User-Agent:
-        - 'Clash/v1.18.0'
-        - 'mihomo/1.19.19'
+        - 'Mihomo'
+        - 'ClashMeta'
     filter: '新加坡|坡|狮城|SG|Singapore|德国|德|DE|Germany|美国|美|us|unitedstates|united states|剩余流量'
     override:
       proxy-name:
