@@ -7,11 +7,6 @@ payload:
   # YuSheNet
   - DOMAIN-SUFFIX,yushe.org
 
-  # ---- 资源网站 -----
-  # M-team
-  - DOMAIN-SUFFIX,m-team.io
-  - DOMAIN-SUFFIX,m-team.cc
-
   # ---- 其他网站 -----
   # 掘金
   - DOMAIN-SUFFIX,juejin.cn

@@ -4,12 +4,15 @@
 
 payload:
   # ---- 机场网站 -----
-  # XfssNet
-  - DOMAIN-KEYWORD,xfltd
 
   # ---- BT网站 -----
   # anyBT
   - DOMAIN-KEYWORD,anybt
+
+  # ---- 资源网站 -----
+  # M-team
+  - DOMAIN-SUFFIX,m-team.io
+  - DOMAIN-SUFFIX,m-team.cc
 
   # ---- 经济网站 ----
   # ICMarkets

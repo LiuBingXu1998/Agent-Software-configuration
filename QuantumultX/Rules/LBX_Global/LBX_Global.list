@@ -3,12 +3,15 @@
 # update: 2025.4.24
 
 # ---- 机场网站 -----
-# XfssNet
-HOST-KEYWORD,xfltd,LBX_Global
 
 # ---- BT网站 -----
 # anyBT
 HOST-KEYWORD,anybt,LBX_Global
+
+# ---- 资源网站 -----
+# M-team
+DOMAIN-SUFFIX,m-team.io,LBX_Global
+DOMAIN-SUFFIX,m-team.cc,LBX_Global
 
 # ---- 经济网站 ----
 # ICMarkets
