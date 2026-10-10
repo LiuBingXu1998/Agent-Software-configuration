@@ -8,9 +8,4 @@ DOMAIN-SUFFIX,embymv.top,EmbyMedia
 
 # ---- 公费服 -----
 # Polo_公费服
-DOMAIN-SUFFIX,poloemby.xyz,EmbyMedia
-
-# 垃圾_公费服
-DOMAIN-SUFFIX,line.xmsl.org,EmbyMedia
-DOMAIN-SUFFIX,pm.xmsl.org,EmbyMedia
-DOMAIN-SUFFIX,xmsl.org,EmbyMedia
+DOMAIN-SUFFIX,l.poloemby.xyz,EmbyMedia

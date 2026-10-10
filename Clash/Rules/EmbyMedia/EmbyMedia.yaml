@@ -9,9 +9,4 @@ payload:
 
   # ---- 公费服 -----
   # Polo_公费服
-  - DOMAIN-SUFFIX,poloemby.xyz
-
-  # 垃圾_公费服
-  - DOMAIN-SUFFIX,line.xmsl.org
-  - DOMAIN-SUFFIX,pm.xmsl.org
-  - DOMAIN-SUFFIX,xmsl.org
+  - DOMAIN-SUFFIX,l.poloemby.xyz
